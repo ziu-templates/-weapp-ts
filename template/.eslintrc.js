@@ -4,27 +4,47 @@ module.exports = {
   root: true,
   parser: "@typescript-eslint/parser",
   parserOptions: {
+    ecmaVersion: 6,
     sourceType: "module",
   },
   env: {
     es6: true,
   },
-  plugins: ["import"],
-  extends: ["plugin:@typescript-eslint/recommended", "airbnb", "ziu"],
+  plugins: ["import", "@typescript-eslint"],
+  extends: [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "ziu",
+  ],
+  globals: {
+    Behavior: true,
+  },
   settings: {
     "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"],
     },
     "import/resolver": {
-      typescript: {
-        directory: "./tsconfig.json",
-      },
       node: {
         extensions: [".js", ".jsx", ".ts", ".tsx"],
       },
     },
+    "import/ignore": [
+      "node_modules",
+      "\\.(coffee|scss|css|less|hbs|svg|json)$",
+    ],
   },
+  overrides: [
+    {
+      files: ["**/*.ts"],
+      parser: "@typescript-eslint/parser",
+      rules: {
+        "no-undef": "off",
+      },
+    },
+  ],
   // add your custom rules here
   rules: {
     "import/extensions": [
@@ -37,20 +57,20 @@ module.exports = {
         tsx: "never",
       },
     ],
-    "@typescript-eslint/interface-name-prefix": {
-      prefixWithI: "always",
-    },
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-use-before-define": 0,
     "@typescript-eslint/camelcase": 0,
     "prefer-promise-reject-errors": 0,
     "object-curly-newline": 0,
+    "class-methods-use-this": 0,
     "no-plusplus": 0,
+    "no-useless-escape": 0,
     "no-param-reassign": ["error", { props: false }],
+    // "implicit-arrow-linebreak": ["error", "below"],
+    // "function-paren-newline": ["error", "always"],
     "linebreak-style": 0,
     "no-use-before-define": 0,
-    "class-methods-use-this": 0,
     "operator-linebreak": [
       2,
       "after",
