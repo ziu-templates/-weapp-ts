@@ -20,7 +20,7 @@
         "postversion": "conventional-changelog -p angular -i CHANGELOG.md -s -r 2 && git add CHANGELOG.md package.json && git add -u",
         {{/changelog}}
         "dev": "npm run build -- development",
-        "build": "ziu-server --config scripts1/etc/config.js",
+        "build": "ziu-server --config scripts/config.js",
         "staging": "npm run build -- staging",
         "testing": "npm run build -- testing",
         "report": "npm run build -- production -r"
