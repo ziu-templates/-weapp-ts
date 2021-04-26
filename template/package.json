@@ -10,13 +10,11 @@
         "lint": "eslint --ext .ts --ext .tsx src -c .eslintrc.js",
         "lint:scss": "stylelint src/**/*.scss --config .stylelintrc",
         "api": "mipp-api src/**/*/apiList.ts -o src/typings/Api/index.d.ts",
+        "commit": "git-cz --disable-emoji",
         {{#gitCommitMsg}}
         "husky": "node node_modules/husky/lib/bin install",
         "unhusky": "node node_modules/husky/lib/bin uninstall",
         {{/gitCommitMsg}}
-        {{#performance}}
-        "commit": "git-cz --disable-emoji",
-        {{/performance}}
         {{#changelog}}
         "cl": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1000",
         "postversion": "conventional-changelog -p angular -i CHANGELOG.md -s -r 2 && git add CHANGELOG.md package.json && git add -u",

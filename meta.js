@@ -28,26 +28,16 @@ module.exports = {
       type: 'confirm',
       message: 'Use commitlint to check commit message?(Angular Commit Message)',
     },
-    performance: {
-      type: 'confirm',
-      message: 'Use Picture Compression/CHANGELOG to your project?',
-    },
-    img: {
-      when: 'performance',
-      type: 'confirm',
-      message: 'Use Picture Compression?',
-    },
     changelog: {
-      when: 'performance',
       type: 'confirm',
-      message: 'Use CHANGELOG?',
+      message: 'Use CHANGELOG to your project?',
     },
   },
   filters: {
     'src/assets/imgs/tab.png': 'tab',
-    '.eslintrc.js': 'lint',
-    '.eslintignore': 'lint',
-    'scripts/lib/webpack/loaders/eslintLoader.js': 'lint',
+    // '.eslintrc.js': 'lint',
+    // '.eslintignore': 'lint',
+    // 'scripts/lib/webpack/loaders/eslintLoader.js': 'lint',
     'commitlint.config.js': 'gitCommitMsg',
     '.huskyrc': 'gitCommitMsg',
   }
