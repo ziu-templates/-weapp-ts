@@ -25,7 +25,7 @@ module.exports = {
   globalObject: "global",
   commonsDir: "build~commons",
   useSourceMap: true,
-  useCache: false,
+  useCache: true,
 
   envData,
 
