@@ -5,7 +5,7 @@ const envData = require("./getEnvData");
 module.exports = {
   root: "src",
   mode: process.env.PRJ_ENV,
-  id: "",
+  id: envData.APP_ID || "",
   entry: {
     app: "src/app.json", // 该行固定格式
     outside: "src/outside/**/*/app.json",
