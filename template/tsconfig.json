@@ -15,8 +15,9 @@
     "allowJs": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "noImplicitThis": true,
+    "noImplicitThis": false,
     "incremental": true,
+    "esModuleInterop": true,
     "noEmit": true
   },
   "exclude": [
