@@ -3,9 +3,10 @@ const projectConfig = require("./project.config");
 const envData = require("./getEnvData");
 
 module.exports = {
+  title: jsonParse(envData).APP_TITLE || "",
   root: "src",
   mode: process.env.PRJ_ENV,
-  id: envData.APP_ID || "",
+  id: jsonParse(envData).APP_ID || "",
   entry: {
     app: "src/app.json", // 该行固定格式
     outside: "src/outside/**/*/app.json",
@@ -43,3 +44,11 @@ module.exports = {
     production: true,
   }
 };
+
+function jsonParse(jsonStr) {
+  try {
+    return JSON.parse(jsonStr);
+  } catch (e) {
+    return {};
+  }
+}
