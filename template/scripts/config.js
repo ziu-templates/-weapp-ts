@@ -22,7 +22,7 @@ module.exports = {
     miniJs: "wxs",
     xml: "wxml",
   },
-  dist: join(process.cwd(), "dist/dev"),
+  dist: getDist(),
   globalObject: "global",
   commonsDir: "build~commons",
   useSourceMap: true,
@@ -42,8 +42,33 @@ module.exports = {
     testing: true,
     staging: true,
     production: true,
-  }
+  },
+
+  /**
+   * 是否使用默认的process polyfill
+   */
+  process: true,
+
+  polyfill: {
+    node: true,
+  },
+
+  fallback: {},
+
+  plugins: [],
 };
+
+function getDist() {
+
+  const distList = {
+    development: "dist/dev",
+    testing: "dist/testing",
+    staging: "dist/staging",
+    production: "dist/release",
+  }
+
+  return join(process.cwd(), distList[process.env.PRJ_ENV]);
+}
 
 function jsonParse(jsonStr) {
   try {
