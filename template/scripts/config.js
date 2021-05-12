@@ -15,6 +15,7 @@ module.exports = {
     js: "ts",
     miniJs: "wxs",
     xml: "wxml",
+    css: "scss",
   },
   compiledSuffix: {
     js: "js",
@@ -26,7 +27,7 @@ module.exports = {
   globalObject: "global",
   commonsDir: "build~commons",
   useSourceMap: true,
-  useCache: true,
+  useCache: process.env.PRJ_ENV === "development" ? true : false,
 
   envData,
 
