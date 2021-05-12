@@ -12,8 +12,11 @@
         "api": "mipp-api src/**/*/apiList.ts -o src/typings/Api/index.d.ts",
         "commit": "git-cz --disable-emoji",
         {{#gitCommitMsg}}
-        "husky": "node node_modules/husky/lib/bin install",
-        "unhusky": "node node_modules/husky/lib/bin uninstall",
+        "prepare": "husky install",
+        "husky": "npm run prepare && npm run commit-msg && npm run pre-push",
+        "commit-msg": "husky add .husky/commit-msg 'npx --no-install commitlint --edit $1'",
+        "pre-push": "husky add .husky/pre-push 'npm run test && npm run lint:scss'",
+        "unhusky": "husky uninstall",
         {{/gitCommitMsg}}
         {{#changelog}}
         "cl": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1000",
