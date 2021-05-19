@@ -33,6 +33,7 @@ module.exports = {
 
   mergeProjectConfig: true,
   projectConfigName: "project.config.json",
+  otherConfig: ["project.private.config.json"],
   /**
    * 小程序项目配置文件
    */
