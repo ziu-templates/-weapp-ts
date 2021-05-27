@@ -39,6 +39,10 @@ module.exports = {
   otherConfig: [{
     from: join(getDist(), "project.private.config.json"),
     to: join(sourceRoot(root), "project.private.config.json"),
+  },
+  {
+    from: join(getDist(), "sitemap.json"),
+    to: join(sourceRoot(root), "sitemap.json"),
   }],
   /**
    * 小程序项目配置文件
